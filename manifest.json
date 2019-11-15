@@ -4,28 +4,31 @@
   "description": "a drink reminder",
   "permissions": [
     "declarativeContent",
-    "storage"
+    "storage",
+    "notifications"
   ],
+  "homepage_url":"http://www.baidu.com",
   "background": {
     "scripts": [
       "background.js"
     ],
     "persisten": false
   },
-  "page_action": {
+  "browser_action": {
     "default_popup": "popup.html",
+    "default_title" : "water the mint",
     "default_icon": {
-      "16": "images/get_started16.png",
-      "32": "images/get_started32.png",
-      "48": "images/get_started48.png",
-      "128": "images/get_started128.png"
+      "16": "images/mint_icon16.png",
+      "32": "images/mint_icon32.png",
+      "48": "images/mint_icon48.png",
+      "128": "images/mint_icon128.png"
     }
   },
   "icons": {
-    "16": "images/get_started16.png",
-    "32": "images/get_started32.png",
-    "48": "images/get_started48.png",
-    "128": "images/get_started128.png"
+    "16": "images/mint_icon16.png",
+    "32": "images/mint_icon32.png",
+    "48": "images/mint_icon48.png",
+    "128": "images/mint_icon128.png"
   },
   "manifest_version": 2
 }

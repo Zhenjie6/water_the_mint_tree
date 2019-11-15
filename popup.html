@@ -7,8 +7,150 @@
     <title>Document</title>
 </head>
 <body>
-    <button id="changeColor"></button>
-    <script src="popup.js"></script>
+    <div class="pop_container">
+        <div class="sun_or_moon" id="sun_or_moon"></div>
+        <div class="watering_can" id="watering_can"></div>
+        <div class="leaves" id="leaves"><canvas id="leaves_canvas"></canvas></div>
+        <div class="fall" id="fall"><canvas id="fall_canvas"></canvas></div>
+        <div class="info_text_container" id="info_text _container"><span class="info_text" id="info_text"></span></div>
+        <div class="low_text" id="low_text">click the watering can</div>
+    </div>
+
 </body>
+<style>
+body{
+    box-sizing: border-box;
+    margin: 0;
+}
+*,
+:after,
+:before{
+    box-sizing: border-box;
+}
+
+.pop_container{
+    overflow:hidden;
+    /*fix the margin merge problem*/
+    width: 500px;
+    height: 250px;
+    background: url("images/background_with_tree.png");
+}
+
+.pop_container.night{
+    background: url("images/background_night.png");
+}
+
+.sun_or_moon{
+    width: 80px;
+    height: 80px;
+    float: left;
+    background: url("./images/sun.png");
+    border-radius: 50%;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.sun_or_moon.moon{
+    background: url("./images/moon.png");
+}
+
+.sun_or_moon:hover{
+    cursor: pointer;
+}
+
+#watering_can{
+    background: url("./images/watering_can.png");
+    background-size: cover;
+    width: 80px;
+    height: 80px;
+    float: right;
+    margin-top: 130px;
+    margin-right: 80px;
+}
+
+#leaves{
+    height: 120px;
+    width: 160px;
+    box-sizing: border-box;
+    margin-left: 110px;
+    margin-top: 20px;
+    border-radius: 60px;
+    overflow: hidden;
+}
+
+#fall{
+    height: 60px;
+    width: 200px;
+    box-sizing: border-box;
+    margin-left: 90px;
+    margin-top: 40px;
+    border-radius: 60px;
+    overflow: hidden;
+}
+
+#leaves_canvas{
+
+}
+
+#watering_can:hover{
+    cursor: pointer;
+}
+
+#watering_can.night:hover{
+    cursor:not-allowed;
+}
+
+/*below are the standard code to put multi_line in center vertically */
+.info_text_container{
+    height: 120px;
+    width: 200px;
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    line-height: 120px;
+    color:#39b54a;
+    font-weight: bold;
+}
+
+.info_text{
+    text-align: center;
+    font-size: 30px;
+    line-height: 30px;
+    display: inline-block;
+    vertical-align: middle;
+    width: 200px;
+}
+
+.info_text.night{
+    color: whitesmoke;
+}
+
+.low_text{
+    height: 30px;
+    width: 200px;
+    line-height: 15px;
+    position: fixed;
+    top: 210px;
+    right: 20px;
+    font-size: 15px;
+    color: red;
+    text-align: center;
+    display: none;
+}
+.low_text.show{
+    height: 30px;
+    width: 200px;
+    line-height: 15px;
+    position: fixed;
+    top: 210px;
+    right: 20px;
+    font-size: 15px;
+    color: red;
+    text-align: center;
+    display: inline-block;
+}
+</style>
+
+<script src="popup.js"></script>
 
 </html>
