@@ -18,12 +18,12 @@ function timer() {
     if (!isDay) {
         return;
     }
-    min_count++;
-    water++;
     if (min_count >= 6) {
-        text_1 = "I NEED WATER";
-        leaves -= water - 6;
-        fall += water - 6;
+        text_1 = "NEED WATER<br/>@_@";
+        if (leaves >= 6) {
+            leaves -= water - 6;
+            fall += water - 6;
+        }
         chrome.browserAction.setBadgeText({ text: "DRY" });
         chrome.browserAction.setBadgeBackgroundColor({ color: "#f7941d" });
         if (noti_timer % 5 == 0) {
@@ -43,6 +43,9 @@ function timer() {
             text_1 = "^_^";
         }
     }
+    min_count++;
+    water++;
+    return;
 }
 
 function sendNotification() {
@@ -52,7 +55,7 @@ function sendNotification() {
         });
     chrome.notifications.create("1", {
         type: 'basic',
-        iconUrl: './images/mint_icon128',
+        iconUrl: './images/mint_icon128.png',
         title: 'NEED WATER',
         message: 'water the mint tree, and get yourself a cup of water'
     });
@@ -67,10 +70,10 @@ function waterTheTree() {
     leaves += 30;
     timer();
     min_count--;
-    water++;
+    water--;
     if (leaves > MAX_LEAVES) {
         leaves = 0;
-        text_1 = "THE TREE HAS BEEN RESETTED"
+        text_1 = "THE TREE HAS BEEN RESETTED";
     }
 }
 
@@ -109,8 +112,5 @@ function switchDay() {
     isDay = !isDay;
 }
 
-
-min_count--;
-water--;
 timer();
 setInterval(timer, 60000);
