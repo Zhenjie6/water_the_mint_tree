@@ -5,8 +5,6 @@ let isDay = true;
 let leaves = 30;
 let fall = 0;
 let notificationId = 0;
-//the reverse-amount of water
-let water = 0;
 let min_count = 0;
 //the text in right_top corner
 let text_1 = "^_^";
@@ -18,11 +16,11 @@ function timer() {
     if (!isDay) {
         return;
     }
-    if (min_count >= 6) {
+    if (min_count >= 60) {
         text_1 = "NEED WATER<br/>@_@";
         if (leaves >= 6) {
-            leaves -= water - 6;
-            fall += water - 6;
+            leaves -= 6;
+            fall += 6;
         }
         chrome.browserAction.setBadgeText({ text: "DRY" });
         chrome.browserAction.setBadgeBackgroundColor({ color: "#f7941d" });
@@ -30,21 +28,19 @@ function timer() {
             sendNotification()
         }
         noti_timer++;
-
     }
-    if (min_count < 6) {
+    if (min_count < 60) {
         chrome.browserAction.setBadgeText({ text: min_count + "" });
         chrome.browserAction.setBadgeBackgroundColor({ color: "#7cc576" });
-        if (min_count < 6 && min_count > 4) {
+        if (min_count < 60 && min_count > 40) {
             text_1 = "*_*";
-        } else if (min_count <= 4 && min_count > 2) {
+        } else if (min_count <= 40 && min_count > 20) {
             text_1 = "-_-";
         } else {
             text_1 = "^_^";
         }
     }
     min_count++;
-    water++;
     return;
 }
 
@@ -65,12 +61,10 @@ function sendNotification() {
 
 function waterTheTree() {
     min_count = 0;
-    water = 0;
     fall = 0;
     leaves += 30;
     timer();
     min_count--;
-    water--;
     if (leaves > MAX_LEAVES) {
         leaves = 0;
         text_1 = "THE TREE HAS BEEN RESETTED";

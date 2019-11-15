@@ -1,7 +1,7 @@
 {
   "name": "water the mint",
   "version": "0.1",
-  "description": "a drink reminder",
+  "description": "a drink water reminder",
   "permissions": [
     "declarativeContent",
     "storage",

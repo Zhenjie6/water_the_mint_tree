@@ -75,8 +75,5 @@ function refresh(){
         fall_canvas.arc(x,y,r,0,2*Math.PI);
         fall_canvas.fill();
     }
-    info_text.classList.remove("orange");
-    if(bg.getText1 == "NEED WATER<br/>@_@"){
-        info_text.classList.add("orange");
-    }
+    return;
 }
