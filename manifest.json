@@ -1,7 +1,8 @@
 {
-  "name": "water the mint",
-  "version": "0.1",
+  "name": "water the mint plant",
+  "version": "0.0.1",
   "description": "a drink water reminder",
+  "author" : "Jack Yen",
   "permissions": [
     "declarativeContent",
     "storage",
@@ -16,7 +17,7 @@
   },
   "browser_action": {
     "default_popup": "popup.html",
-    "default_title" : "water the mint",
+    "default_title" : "water the mint plant",
     "default_icon": {
       "16": "images/mint_icon16.png",
       "32": "images/mint_icon32.png",
